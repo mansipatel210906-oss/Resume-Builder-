@@ -1,0 +1,227 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-page">
+
+    <h1>
+        Edit Resume
+    </h1>
+
+
+    <form
+        method="POST"
+        class="resume-form"
+    >
+
+        <div class="form-section">
+
+            <h2>
+                Personal Information
+            </h2>
+
+
+            <label>Full Name</label>
+
+            <input
+                type="text"
+                name="name"
+                value="{{ resume['name'] or '' }}"
+                required
+            >
+
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                name="email"
+                value="{{ resume['email'] or '' }}"
+                required
+            >
+
+
+            <label>Phone</label>
+
+            <input
+                type="text"
+                name="phone"
+                value="{{ resume['phone'] or '' }}"
+            >
+
+
+            <label>Address</label>
+
+            <input
+                type="text"
+                name="address"
+                value="{{ resume['address'] or '' }}"
+            >
+
+
+            <label>LinkedIn</label>
+
+            <input
+                type="text"
+                name="linkedin"
+                value="{{ resume['linkedin'] or '' }}"
+            >
+
+
+            <label>GitHub</label>
+
+            <input
+                type="text"
+                name="github"
+                value="{{ resume['github'] or '' }}"
+            >
+
+        </div>
+
+
+        <div class="form-section">
+
+            <h2>
+                Career Objective
+            </h2>
+
+            <textarea
+                name="career_objective"
+                rows="5"
+            >{{ resume['career_objective'] or '' }}</textarea>
+
+        </div>
+
+
+        <div class="form-section">
+
+            <h2>
+                Education
+            </h2>
+
+            <textarea
+                name="education"
+                rows="7"
+            >{{ resume['education'] or '' }}</textarea>
+
+        </div>
+
+
+        <div class="form-section">
+
+            <h2>
+                Skills
+            </h2>
+
+            <textarea
+                name="skills"
+                rows="5"
+            >{{ resume['skills'] or '' }}</textarea>
+
+        </div>
+
+
+        <div class="form-section">
+
+            <h2>
+                Experience
+            </h2>
+
+            <textarea
+                name="experience"
+                rows="7"
+            >{{ resume['experience'] or '' }}</textarea>
+
+        </div>
+
+
+        <div class="form-section">
+
+            <h2>
+                Projects
+            </h2>
+
+            <textarea
+                name="projects"
+                rows="7"
+            >{{ resume['projects'] or '' }}</textarea>
+
+        </div>
+
+
+        <div class="form-section">
+
+            <h2>
+                Certifications
+            </h2>
+
+            <textarea
+                name="certifications"
+                rows="5"
+            >{{ resume['certifications'] or '' }}</textarea>
+
+        </div>
+
+
+        <div class="form-section">
+
+            <h2>
+                Achievements
+            </h2>
+
+            <textarea
+                name="achievements"
+                rows="5"
+            >{{ resume['achievements'] or '' }}</textarea>
+
+        </div>
+
+
+        <div class="form-section">
+
+            <h2>
+                Template
+            </h2>
+
+            <select name="template">
+
+                <option
+                    value="classic"
+                    {% if resume['template'] == 'classic' %}selected{% endif %}
+                >
+                    Classic
+                </option>
+
+
+                <option
+                    value="modern"
+                    {% if resume['template'] == 'modern' %}selected{% endif %}
+                >
+                    Modern
+                </option>
+
+
+                <option
+                    value="simple"
+                    {% if resume['template'] == 'simple' %}selected{% endif %}
+                >
+                    Simple
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="primary-btn"
+        >
+            Update Resume
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

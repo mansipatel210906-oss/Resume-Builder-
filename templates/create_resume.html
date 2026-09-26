@@ -1,0 +1,265 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-page">
+
+    <h1>
+        Create Your Resume
+    </h1>
+
+    <p class="subtitle">
+        Enter your information below.
+    </p>
+
+
+    <form
+        method="POST"
+        class="resume-form"
+    >
+
+        <!-- PERSONAL INFORMATION -->
+
+        <div class="form-section">
+
+            <h2>
+                Personal Information
+            </h2>
+
+
+            <label>Full Name</label>
+
+            <input
+                type="text"
+                name="name"
+                placeholder="John Doe"
+                required
+            >
+
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="john@example.com"
+                required
+            >
+
+
+            <label>Phone</label>
+
+            <input
+                type="text"
+                name="phone"
+                placeholder="+91 9876543210"
+            >
+
+
+            <label>Address</label>
+
+            <input
+                type="text"
+                name="address"
+                placeholder="Ahmedabad, Gujarat"
+            >
+
+
+            <label>LinkedIn</label>
+
+            <input
+                type="text"
+                name="linkedin"
+                placeholder="linkedin.com/in/yourname"
+            >
+
+
+            <label>GitHub</label>
+
+            <input
+                type="text"
+                name="github"
+                placeholder="github.com/yourname"
+            >
+
+        </div>
+
+
+        <!-- OBJECTIVE -->
+
+        <div class="form-section">
+
+            <h2>
+                Career Objective
+            </h2>
+
+            <textarea
+                name="career_objective"
+                rows="5"
+                placeholder="Write your career objective..."
+            ></textarea>
+
+        </div>
+
+
+        <!-- EDUCATION -->
+
+        <div class="form-section">
+
+            <h2>
+                Education
+            </h2>
+
+            <textarea
+                name="education"
+                rows="7"
+                placeholder="B.Tech Computer Engineering
+ABC College
+2023 - 2027
+CGPA: 8.5"
+            ></textarea>
+
+        </div>
+
+
+        <!-- SKILLS -->
+
+        <div class="form-section">
+
+            <h2>
+                Skills
+            </h2>
+
+            <textarea
+                name="skills"
+                rows="5"
+                placeholder="Python
+Flask
+HTML
+CSS
+JavaScript
+SQL"
+            ></textarea>
+
+        </div>
+
+
+        <!-- EXPERIENCE -->
+
+        <div class="form-section">
+
+            <h2>
+                Experience
+            </h2>
+
+            <textarea
+                name="experience"
+                rows="7"
+                placeholder="Software Developer Intern
+ABC Company
+June 2026 - August 2026
+
+• Developed web applications
+• Worked with Python and Flask"
+            ></textarea>
+
+        </div>
+
+
+        <!-- PROJECTS -->
+
+        <div class="form-section">
+
+            <h2>
+                Projects
+            </h2>
+
+            <textarea
+                name="projects"
+                rows="7"
+                placeholder="Personal Expense Tracker
+Python Flask SQLite
+
+Resume Builder
+Python Flask HTML CSS"
+            ></textarea>
+
+        </div>
+
+
+        <!-- CERTIFICATIONS -->
+
+        <div class="form-section">
+
+            <h2>
+                Certifications
+            </h2>
+
+            <textarea
+                name="certifications"
+                rows="5"
+                placeholder="Python Programming Certificate
+Web Development Certificate"
+            ></textarea>
+
+        </div>
+
+
+        <!-- ACHIEVEMENTS -->
+
+        <div class="form-section">
+
+            <h2>
+                Achievements
+            </h2>
+
+            <textarea
+                name="achievements"
+                rows="5"
+                placeholder="Hackathon Winner
+College Coding Competition"
+            ></textarea>
+
+        </div>
+
+
+        <!-- TEMPLATE -->
+
+        <div class="form-section">
+
+            <h2>
+                Choose Template
+            </h2>
+
+
+            <select name="template">
+
+                <option value="classic">
+                    Classic
+                </option>
+
+                <option value="modern">
+                    Modern
+                </option>
+
+                <option value="simple">
+                    Simple
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="primary-btn"
+        >
+            Save Resume
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

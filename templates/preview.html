@@ -1,0 +1,237 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="preview-actions">
+
+    <a
+        href="{{ url_for('dashboard') }}"
+        class="btn"
+    >
+        ← Dashboard
+    </a>
+
+
+    <a
+        href="{{ url_for('edit_resume', resume_id=resume['id']) }}"
+        class="btn edit-btn"
+    >
+        Edit
+    </a>
+
+
+    <a
+        href="{{ url_for('download_pdf', resume_id=resume['id']) }}"
+        class="primary-btn"
+    >
+        Download PDF
+    </a>
+
+</div>
+
+
+<div class="resume-paper
+    {% if resume['template'] == 'modern' %}
+        modern-template
+    {% elif resume['template'] == 'simple' %}
+        simple-template
+    {% else %}
+        classic-template
+    {% endif %}
+">
+
+
+    <!-- HEADER -->
+
+    <div class="resume-header">
+
+        <h1>
+            {{ resume["name"] }}
+        </h1>
+
+
+        <div class="contact-info">
+
+            {% if resume["email"] %}
+                <span>
+                    {{ resume["email"] }}
+                </span>
+            {% endif %}
+
+
+            {% if resume["phone"] %}
+                <span>
+                    {{ resume["phone"] }}
+                </span>
+            {% endif %}
+
+
+            {% if resume["address"] %}
+                <span>
+                    {{ resume["address"] }}
+                </span>
+            {% endif %}
+
+        </div>
+
+
+        <div class="social-links">
+
+            {% if resume["linkedin"] %}
+
+                <span>
+                    {{ resume["linkedin"] }}
+                </span>
+
+            {% endif %}
+
+
+            {% if resume["github"] %}
+
+                <span>
+                    {{ resume["github"] }}
+                </span>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <!-- OBJECTIVE -->
+
+    {% if resume["career_objective"] %}
+
+    <section>
+
+        <h2>
+            Career Objective
+        </h2>
+
+        <p class="preserve">
+            {{ resume["career_objective"] }}
+        </p>
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- EDUCATION -->
+
+    {% if resume["education"] %}
+
+    <section>
+
+        <h2>
+            Education
+        </h2>
+
+        <p class="preserve">
+            {{ resume["education"] }}
+        </p>
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- SKILLS -->
+
+    {% if resume["skills"] %}
+
+    <section>
+
+        <h2>
+            Skills
+        </h2>
+
+        <p class="preserve">
+            {{ resume["skills"] }}
+        </p>
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- EXPERIENCE -->
+
+    {% if resume["experience"] %}
+
+    <section>
+
+        <h2>
+            Experience
+        </h2>
+
+        <p class="preserve">
+            {{ resume["experience"] }}
+        </p>
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- PROJECTS -->
+
+    {% if resume["projects"] %}
+
+    <section>
+
+        <h2>
+            Projects
+        </h2>
+
+        <p class="preserve">
+            {{ resume["projects"] }}
+        </p>
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- CERTIFICATIONS -->
+
+    {% if resume["certifications"] %}
+
+    <section>
+
+        <h2>
+            Certifications
+        </h2>
+
+        <p class="preserve">
+            {{ resume["certifications"] }}
+        </p>
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- ACHIEVEMENTS -->
+
+    {% if resume["achievements"] %}
+
+    <section>
+
+        <h2>
+            Achievements
+        </h2>
+
+        <p class="preserve">
+            {{ resume["achievements"] }}
+        </p>
+
+    </section>
+
+    {% endif %}
+
+
+</div>
+
+{% endblock %}
