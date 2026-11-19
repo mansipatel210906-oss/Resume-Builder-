@@ -13,9 +13,7 @@ body {
 }
 
 
-/* =========================================
-   NAVBAR
-========================================= */
+
 
 .navbar {
     background: #1f2937;
@@ -596,4 +594,29 @@ select:focus {
         margin-top: 25px;
     }
 
+}
+.modern {
+    border-top: 6px solid #2196f3;
+    padding: 25px;
+}
+
+.professional {
+    border-top: 6px solid #222;
+    padding: 25px;
+    font-family: Georgia, serif;
+}
+
+.creative {
+    border-left: 8px solid #9c27b0;
+    padding: 25px;
+}
+
+.simple {
+    border-top: 2px solid #777;
+    padding: 25px;
+}
+
+.fresher {
+    border-top: 6px solid #009688;
+    padding: 25px;
 }

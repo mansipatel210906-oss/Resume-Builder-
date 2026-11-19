@@ -81,7 +81,6 @@
                 name="github"
                 placeholder="github.com/yourname"
             >
-
         </div>
 
 
@@ -228,24 +227,16 @@ College Coding Competition"
         <div class="form-section">
 
             <h2>
-                Choose Template
+                Choose Resume Template
             </h2>
 
-
-            <select name="template">
-
-                <option value="classic">
-                    Classic
-                </option>
-
-                <option value="modern">
-                    Modern
-                </option>
-
-                <option value="simple">
-                    Simple
-                </option>
-
+            <label for="template">Select Resume Template:</label>
+            <select id="template" name="template" required>
+                <option value="modern">Modern Resume</option>
+                <option value="professional">Professional Resume</option>
+                <option value="creative">Creative Resume</option>
+                <option value="simple">Simple Resume</option>
+                <option value="fresher">Student / Fresher Resume</option>
             </select>
 
         </div>

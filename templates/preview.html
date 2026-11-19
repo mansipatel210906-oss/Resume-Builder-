@@ -1,237 +1,103 @@
+
 {% extends "base.html" %}
 
 {% block content %}
 
-<div class="preview-actions">
+<style>
+.resume {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 35px;
+    background: white;
+    color: #222;
+    box-shadow: 0 2px 12px #ccc;
+    font-family: Arial, sans-serif;
+}
 
-    <a
-        href="{{ url_for('dashboard') }}"
-        class="btn"
-    >
-        ← Dashboard
-    </a>
+.resume h1 {
+    margin-bottom: 8px;
+}
 
+.resume h2 {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 7px;
+    margin-top: 25px;
+}
 
-    <a
-        href="{{ url_for('edit_resume', resume_id=resume['id']) }}"
-        class="btn edit-btn"
-    >
-        Edit
-    </a>
+.resume p {
+    line-height: 1.6;
+    white-space: pre-line;
+}
 
+.modern { border-top: 9px solid #2196f3; }
+.modern h1 { color: #2196f3; }
 
-    <a
-        href="{{ url_for('download_pdf', resume_id=resume['id']) }}"
-        class="primary-btn"
-    >
-        Download PDF
-    </a>
+.professional { border-top: 9px solid #222; }
+.professional h1 { color: #222; font-family: Georgia, serif; }
+
+.creative { border-left: 12px solid #9c27b0; }
+.creative h1 { color: #9c27b0; }
+
+.simple { border-top: 3px solid #777; box-shadow: none; }
+.simple h1 { color: #444; }
+
+.fresher { border-top: 9px solid #009688; }
+.fresher h1 { color: #009688; }
+
+.back-btn {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 12px 25px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+</style>
+
+{% set selected = resume.template or 'modern' %}
+
+<div class="resume {{ selected }}">
+
+    <h1>{{ resume.name }}</h1>
+
+    <p>
+        {{ resume.email }} |
+        {{ resume.phone }} |
+        {{ resume.address }}
+    </p>
+
+    <p>
+        LinkedIn: {{ resume.linkedin }}
+        GitHub: {{ resume.github }}
+    </p>
+
+    <h2>Career Objective</h2>
+    <p>{{ resume.career_objective }}</p>
+
+    <h2>Education</h2>
+    <p>{{ resume.education }}</p>
+
+    <h2>Skills</h2>
+    <p>{{ resume.skills }}</p>
+
+    <h2>Experience</h2>
+    <p>{{ resume.experience }}</p>
+
+    <h2>Projects</h2>
+    <p>{{ resume.projects }}</p>
+
+    <h2>Certifications</h2>
+    <p>{{ resume.certifications }}</p>
+
+    <h2>Achievements</h2>
+    <p>{{ resume.achievements }}</p>
 
 </div>
 
-
-<div class="resume-paper
-    {% if resume['template'] == 'modern' %}
-        modern-template
-    {% elif resume['template'] == 'simple' %}
-        simple-template
-    {% else %}
-        classic-template
-    {% endif %}
-">
-
-
-    <!-- HEADER -->
-
-    <div class="resume-header">
-
-        <h1>
-            {{ resume["name"] }}
-        </h1>
-
-
-        <div class="contact-info">
-
-            {% if resume["email"] %}
-                <span>
-                    {{ resume["email"] }}
-                </span>
-            {% endif %}
-
-
-            {% if resume["phone"] %}
-                <span>
-                    {{ resume["phone"] }}
-                </span>
-            {% endif %}
-
-
-            {% if resume["address"] %}
-                <span>
-                    {{ resume["address"] }}
-                </span>
-            {% endif %}
-
-        </div>
-
-
-        <div class="social-links">
-
-            {% if resume["linkedin"] %}
-
-                <span>
-                    {{ resume["linkedin"] }}
-                </span>
-
-            {% endif %}
-
-
-            {% if resume["github"] %}
-
-                <span>
-                    {{ resume["github"] }}
-                </span>
-
-            {% endif %}
-
-        </div>
-
-    </div>
-
-
-    <!-- OBJECTIVE -->
-
-    {% if resume["career_objective"] %}
-
-    <section>
-
-        <h2>
-            Career Objective
-        </h2>
-
-        <p class="preserve">
-            {{ resume["career_objective"] }}
-        </p>
-
-    </section>
-
-    {% endif %}
-
-
-    <!-- EDUCATION -->
-
-    {% if resume["education"] %}
-
-    <section>
-
-        <h2>
-            Education
-        </h2>
-
-        <p class="preserve">
-            {{ resume["education"] }}
-        </p>
-
-    </section>
-
-    {% endif %}
-
-
-    <!-- SKILLS -->
-
-    {% if resume["skills"] %}
-
-    <section>
-
-        <h2>
-            Skills
-        </h2>
-
-        <p class="preserve">
-            {{ resume["skills"] }}
-        </p>
-
-    </section>
-
-    {% endif %}
-
-
-    <!-- EXPERIENCE -->
-
-    {% if resume["experience"] %}
-
-    <section>
-
-        <h2>
-            Experience
-        </h2>
-
-        <p class="preserve">
-            {{ resume["experience"] }}
-        </p>
-
-    </section>
-
-    {% endif %}
-
-
-    <!-- PROJECTS -->
-
-    {% if resume["projects"] %}
-
-    <section>
-
-        <h2>
-            Projects
-        </h2>
-
-        <p class="preserve">
-            {{ resume["projects"] }}
-        </p>
-
-    </section>
-
-    {% endif %}
-
-
-    <!-- CERTIFICATIONS -->
-
-    {% if resume["certifications"] %}
-
-    <section>
-
-        <h2>
-            Certifications
-        </h2>
-
-        <p class="preserve">
-            {{ resume["certifications"] }}
-        </p>
-
-    </section>
-
-    {% endif %}
-
-
-    <!-- ACHIEVEMENTS -->
-
-    {% if resume["achievements"] %}
-
-    <section>
-
-        <h2>
-            Achievements
-        </h2>
-
-        <p class="preserve">
-            {{ resume["achievements"] }}
-        </p>
-
-    </section>
-
-    {% endif %}
-
-
-</div>
+<a href="{{ url_for('dashboard') }}" class="back-btn">
+    Back to Dashboard
+</a>
 
 {% endblock %}
